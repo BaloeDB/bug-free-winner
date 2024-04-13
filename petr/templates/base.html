@@ -32,5 +32,5 @@
   {% for message in get_flashed_messages() %}
     <div>{{ message }}</div>
   {% endfor %}
-  {% block content %}{% endblock %}
+  <div class="p-4">{% block content %}{% endblock %}</div>
 </section>
