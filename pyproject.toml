@@ -19,7 +19,7 @@ requires = ["flit_core<4"]
 build-backend = "flit_core.buildapi"
 
 [tool.flit.module]
-name = "flaskr"
+name = "petr"
 
 [tool.flit.sdist]
 include = [
