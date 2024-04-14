@@ -5,6 +5,12 @@ The basic blog app built in the Flask `tutorial`_.
 
 .. _tutorial: https://flask.palletsprojects.com/tutorial/
 
+Extended with my own styling and the following functionalities:
+1. Liking
+2. Following
+3. Commenting
+4. Profiles
+
 
 Install
 -------
@@ -14,12 +20,11 @@ you're reading.** You probably want the latest tagged version, but the
 default Git version is the main branch. ::
 
     # clone the repository
-    $ git clone https://github.com/pallets/flask
-    $ cd flask
+    $ git clone https://github.com/BaloeDB/bug-free-winner
+    $ cd bug-free-winner
     # checkout the correct version
     $ git tag  # shows the tagged versions
     $ git checkout latest-tag-found-above
-    $ cd examples/tutorial
 
 Create a virtualenv and activate it::
 
@@ -47,8 +52,8 @@ Run
 
 .. code-block:: text
 
-    $ flask --app flaskr init-db
-    $ flask --app flaskr run --debug
+    $ flask --app petr init-db
+    $ flask --app petr run --debug
 
 Open http://127.0.0.1:5000 in a browser.
 
