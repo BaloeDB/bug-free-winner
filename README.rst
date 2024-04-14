@@ -1,4 +1,4 @@
-Flaskr
+Petr
 ======
 
 The basic blog app built in the Flask `tutorial`_.
@@ -36,12 +36,12 @@ Or on Windows cmd::
     $ py -3 -m venv .venv
     $ .venv\Scripts\activate.bat
 
-Install Flaskr::
+Install Petr::
 
     $ pip install -e .
 
 Or if you are using the main branch, install Flask from source before
-installing Flaskr::
+installing PETR::
 
     $ pip install -e ../..
     $ pip install -e .
