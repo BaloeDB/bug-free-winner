@@ -54,6 +54,9 @@ def get_post(id, check_author=True):
     if check_author and post["author_id"] != g.user["id"]:
         abort(403)
 
+    if not check_author and post["author_id"] == g.user["id"]:
+        abort(403)
+
     return post
 
 
@@ -123,3 +126,22 @@ def delete(id):
     db.execute("DELETE FROM post WHERE id = ?", (id,))
     db.commit()
     return redirect(url_for("blog.index"))
+
+@bp.route("/<int:id>/like", methods=("POST",))
+@login_required
+def like(id):
+    """Like a post.
+
+    Ensures that the posts exists and that the logged in user is not
+    the author of the post.
+    Should also ensure that the user has not already liked the post.
+    """
+    get_post(id, False)
+    db = get_db()
+    db.execute(
+        "INSERT INTO likes (liker_id, post_id) VALUES (?, ?)",
+        (g.user["id"], id),
+    )
+    db.commit()
+    return redirect(url_for("blog.index"))
+
