@@ -1,0 +1,3 @@
+It is possible to change structure of relationship user-post?
+Use a table in between (user_post(id, user_id, post_id).
+Needs a lot of changing
