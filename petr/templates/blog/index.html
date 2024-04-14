@@ -19,10 +19,12 @@
 	      <span><a class="action" href="{{ url_for('blog.update', id=post['id']) }}"
 			      >(Edit)</a></span>
 	    {% elif g.user['id'] != null %}
-	      <span><a class="action" href="{{ url_for('blog.like', id=post['id']) }}"
-			      >(Like)</a></span>
+	      <form class="d-inline" action="{{ url_for('blog.like', id=post['id']) }}" method="post">
+                <input class="btn btn-danger btn-lg" type="submit" value="Like">
+	      </form>
 	    {% endif %}</h1>
           <div class="about">by {{ post['username'] }} on {{ post['created'].strftime('%Y-%m-%d') }}</div>
+	  <div class="likes">likes: {{ post['likes'] }}</div>
         </div>
       </header>
       <p class="body mt-2 ms-4">{{ post['body'] }}</p>

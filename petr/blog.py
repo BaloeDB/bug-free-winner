@@ -22,6 +22,15 @@ def index():
         " FROM post p JOIN user u ON p.author_id = u.id"
         " ORDER BY created DESC"
     ).fetchall()
+    posts = [dict(post) for post in posts]
+    for post in posts:
+        likes = db.execute(
+            f"""
+            SELECT COUNT(*) AS count 
+            FROM likes l WHERE l.post_id = {post['id']}
+            """
+        ).fetchone()['count']
+        post["likes"] = likes
     return render_template("blog/index.html", posts=posts)
 
 
@@ -56,6 +65,7 @@ def get_post(id, check_author=True):
 
     if not check_author and post["author_id"] == g.user["id"]:
         abort(403)
+
 
     return post
 
